@@ -148,6 +148,8 @@ export class CreateProductoComponent implements OnInit {
         this.imgSelect = 'assets/img/01.jpg';
         this.file = undefined;
       }else{
+        console.log(this.producto);
+        console.log(this.file);
         this.load_btn = true;
         this.producto.etiquetas = this.arr_etiquetas;
         
