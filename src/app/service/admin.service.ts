@@ -46,7 +46,7 @@ export class AdminService {
     return this._http.post(this.url+'agregar_etiqueta_admin',data,{headers:headers});
   }
 
-  registro_producto_admin(data:any,file:any,token:any):Observable<any>{
+  registro_producto_admin(data:any,file:File,token:any):Observable<any>{
     let headers = new HttpHeaders({'Authorization':token});
     const fd = new FormData();
     fd.append('titulo',data.titulo);

@@ -19,7 +19,7 @@ export class CreateProductoComponent implements OnInit {
   public categorias: Array<any> = [];
   public config : any = {};
   public load_btn = false;
-  public file : any = undefined;
+  public file : File |  null = null;
 
 
   public arr_etiquetas: Array<any> = [];
@@ -87,11 +87,14 @@ export class CreateProductoComponent implements OnInit {
           position: 'topRight',
           message: 'No hay un imagen de envio'
       });
+      $('#input-portada').text('Seleccionar imagen');
+      this.imgSelect = 'assets/img/01.jpg';
+    this.file = null;
     }
 
-    if(file.size <= 4000000){
+    if(file?.size! <= 4000000){
 
-      if(file.type == 'image/png' || file.type == 'image/webp' || file.type == 'image/jpg' || file.type == 'image/gif' || file.type == 'image/jpeg'){
+      if(file?.type == 'image/png' || file?.type == 'image/webp' || file?.type == 'image/jpg' || file?.type == 'image/gif' || file?.type == 'image/jpeg'){
     
         const reader = new FileReader();
         reader.onload = e => this.imgSelect = reader.result;
@@ -113,7 +116,7 @@ export class CreateProductoComponent implements OnInit {
         });
         $('#input-portada').text('Seleccionar imagen');
         this.imgSelect = 'assets/img/01.jpg';
-        this.file = undefined;
+        this.file = null;
       }
     }else{
       iziToast.show({
@@ -126,7 +129,7 @@ export class CreateProductoComponent implements OnInit {
       });
       $('#input-portada').text('Seleccionar imagen');
       this.imgSelect = 'assets/img/01.jpg';
-      this.file = undefined;
+      this.file = null;
     }
     
     console.log(this.file);
@@ -144,18 +147,18 @@ export class CreateProductoComponent implements OnInit {
             position: 'topRight',
             message: 'Debe subir una portada para registrar'
         });
-        $('#input-portada').text('Seleccionar imagen');
-        this.imgSelect = 'assets/img/01.jpg';
-        this.file = undefined;
+        // $('#input-portada').text('Seleccionar imagen');
+        // this.imgSelect = 'assets/img/01.jpg';
+        // this.file = undefined;
       }else{
-        console.log(this.producto);
-        console.log(this.file);
+        // console.log(this.producto);
+        // console.log(this.file);
         this.load_btn = true;
         this.producto.etiquetas = this.arr_etiquetas;
         
-        this._adminService.registro_producto_admin(this.producto,this.file,this.token).subscribe(
+        this._adminService.registro_producto_admin(this.producto,this.file!,this.token).subscribe(
           response=>{
-  
+            console.log(response);
             if(response.data == undefined){
               iziToast.show({
                   title: 'ERROR',
@@ -181,6 +184,8 @@ export class CreateProductoComponent implements OnInit {
             }
           },
           error=>{
+            console.log(this.file);
+            console.log(error);
             this.load_btn = false;
           }
         );

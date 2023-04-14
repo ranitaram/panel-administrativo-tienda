@@ -80,7 +80,7 @@
                                   <th class="border-0 py-2 pl-0">Precio envio:</th>
                                   <td class="border-0 py-2 px-0 text-muted">
                                     <span *ngIf="venta.currency == 'USD'">{{venta.envio_precio|currency:'USD'}}</span>
-                                    <span *ngIf="venta.currency == 'PEN'">{{venta.envio_precio|currency:'PEN'}}</span>
+                                    <span *ngIf="venta.currency == 'PEN'">{{venta.envio_precio|currency:'MXN'}}</span>
                                   </td>
                                 </tr>
                               <tr>
@@ -99,7 +99,7 @@
                                 <th class="border-0 py-2 pl-0">Descuento:</th>
                                 <td class="border-0 py-2 px-0 text-muted">
                                   <span *ngIf="venta.currency == 'USD'">{{venta.valor_descuento|currency:'USD'}}</span>
-                                  <span *ngIf="venta.currency == 'PEN'">{{venta.valor_descuento|currency:'PEN'}}</span>
+                                  <span *ngIf="venta.currency == 'PEN'">{{venta.valor_descuento|currency:'MXN'}}</span>
                                 </td>
                               </tr>
                             </tbody>
@@ -202,7 +202,7 @@
                                   </tr>
                                   <tr>
                                     <th class="border-0 py-2 ps-0">Monto:</th>
-                                    <td class="border-0 py-2 px-0 text-muted">S/{{pago.transaction_amount}}</td>
+                                    <td class="border-0 py-2 px-0 text-muted">MXN {{pago.transaction_amount}} $</td>
                                   </tr>
                                   <tr>
                                     <th class="border-0 py-2 ps-0">IP Client:</th>
@@ -312,7 +312,7 @@
                             <div class="py-2">
                               <div class="font-size-xs text-muted mb-1">Precio:</div>
                               <div class="font-size-sm text-dark">
-                                <span *ngIf="venta.currency == 'PEN'">S/{{item.subtotal}}</span>
+                                <span *ngIf="venta.currency == 'PEN'">MXN {{item.subtotal}} $</span>
                                 <span  *ngIf="venta.currency == 'USD'">${{item.subtotal}}</span>
                                 
                               </div>
@@ -328,7 +328,7 @@
                             <div class="py-2 pr-3 text-right">
                               <div class="font-size-xs text-muted mb-1">Subtotal:</div>
                               <div class="font-size-sm font-weight-bold text-dark">
-                                <span *ngIf="venta.currency == 'PEN'">S/{{item.subtotal*item.cantidad}}</span>
+                                <span *ngIf="venta.currency == 'PEN'">MXN {{item.subtotal*item.cantidad}} $</span>
                                 <span  *ngIf="venta.currency == 'USD'">${{item.subtotal*item.cantidad}}</span>
                                 </div>
                             </div>
@@ -340,7 +340,7 @@
                           </td>
                           <td class="" colspan="1">
                             <div class="py-2 pr-3 text-right">
-                              <span *ngIf="venta.currency == 'PEN'">S/{{venta.subtotal}}</span>
+                              <span *ngIf="venta.currency == 'MXN'">MXN {{venta.subtotal}} $</span>
                               <span  *ngIf="venta.currency == 'USD'">${{venta.subtotal}}</span>
                             </div>  
                           </td>
@@ -351,7 +351,7 @@
                           </td>
                           <td class="" colspan="1">
                             <div class="py-2 pr-3 text-right">
-                              <span *ngIf="venta.currency == 'PEN'">- S/{{venta.valor_descuento}}</span>
+                              <span *ngIf="venta.currency == 'MXN'">- MXN {{venta.valor_descuento}} $</span>
                               <span  *ngIf="venta.currency == 'USD'">- ${{venta.valor_descuento}}</span>
                             </div>  
                           </td>
@@ -362,7 +362,7 @@
                           </td>
                           <td class="" colspan="1">
                             <div class="py-2 pr-3 text-right">
-                              <span *ngIf="venta.currency == 'PEN'">S/{{venta.envio_precio}}</span>
+                              <span *ngIf="venta.currency == 'MXN'">MXN {{venta.envio_precio}} $</span>
                               <span  *ngIf="venta.currency == 'USD'">${{venta.envio_precio}}</span>
                             </div>  
                           </td>
@@ -373,7 +373,7 @@
                           </td>
                           <td class="" colspan="1">
                             <div  class="py-2 pr-3 text-right">
-                              <span *ngIf="venta.currency == 'PEN'">S/{{venta.total_pagar}}</span>
+                              <span *ngIf="venta.currency == 'MXN'">MXN {{venta.total_pagar}} $</span>
                               <span  *ngIf="venta.currency == 'USD'">${{venta.total_pagar}}</span>
                             </div>
                           </td>
