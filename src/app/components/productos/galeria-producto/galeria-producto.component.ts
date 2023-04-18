@@ -74,7 +74,7 @@ export class GaleriaProductoComponent implements OnInit {
       });
     }
 
-    if(file.size <= 4000000){
+    if(file.size <= 5000000){
 
       if(file.type == 'image/png' || file.type == 'image/webp' || file.type == 'image/jpg' || file.type == 'image/gif' || file.type == 'image/jpeg'){
 
@@ -99,7 +99,7 @@ export class GaleriaProductoComponent implements OnInit {
           color: '#FFF',
           class: 'text-danger',
           position: 'topRight',
-          message: 'La imagen no puede superar los 4MB'
+          message: 'La imagen no puede superar los 5MB'
       });
       $('#input-img').val('');
       this.file = undefined;
